@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="hambuger.css" type="text/css" />
 </head>
 <body >
   <!-- Top nav -->
@@ -17,21 +18,27 @@
       <a class="logo" href="index.html">
       <img src="vibetune-logo.jpg" alt="vibetune logo" class="logo">
       </a>
-   <nav class="main-nav">
-  <a href="index.html" class="active">Home</a>
-  <a href="artists.html">Artists</a>
-  <a href="playlist.html">Albums</a>
-  <a href="events.html">Events</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-</nav>
 
-      <div class="nav-actions">
+    <!-- Hamburger Icon -->
+    <div class="menu-icon" id="menu-icon">☰</div>
+
+    <!-- Navigation Links -->
+    <div class="main-nav" id="nav-links">
+      <a href="index.html" class="active">Home</a>
+        <a href="artists.html">Artist</a>
+      <a href="playlist.html">Playlist</a>
+      <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
     
-       <input class="search" type="search" placeholder="Search artists, tracks..." aria-label="Search">
-<button id="search-btn">🔍</button>
-        <button class="btn-ghost">Login</button>
-      </div>
+
+    <!-- Search + Login stay visible -->
+    <div class="nav-actions">
+      <input type="text" class="search" placeholder="Search..." />
+      <button class="btn-ghost">Login</button>
+    </div>
+    </div>
+  </div>
+</nav>
     </div>
   </header>
 
@@ -163,6 +170,7 @@
   </footer>
 
   <script src="player.js"></script>
+  <script src="hambuger.js"></script>
   <script>
     // hero play button triggers playback of first track
     document.getElementById('hero-play').addEventListener('click', ()=> {

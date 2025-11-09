@@ -1,3 +1,8 @@
+/* ================================
+   🎵 VibeTune Full Site Stylesheet
+   Includes Navbar + Hamburger + All Pages
+   ================================ */
+
 :root {
   --bg: #f9fafb;
   --card: #ffffff;
@@ -23,14 +28,20 @@ html, body {
   color: var(--text);
 }
 
-/* Navbar */
+/* ===============================
+   🌟 NAVBAR + HAMBURGER MENU
+   =============================== */
+
 .nav.fixed {
   position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  background: linear-gradient(90deg, rgba(46, 204, 113, 0.95), rgba(52, 152, 219, 0.95));
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
   backdrop-filter: blur(10px);
   box-shadow: 0 6px 18px var(--shadow);
+  transition: background 0.3s ease;
 }
 
 .nav-inner {
@@ -40,34 +51,148 @@ html, body {
   padding: 0.8rem 1.5rem;
 }
 
-.logo {
+/* Logo */
+.logo img {
   height: 45px;
   border-radius: 25px;
   object-fit: cover;
   transition: transform 0.25s ease;
 }
-.logo:hover { transform: scale(1.05); }
+.logo img:hover {
+  transform: scale(1.05);
+}
 
+/* Navigation Links */
 .main-nav {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.2rem;
 }
+
 .main-nav a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s, background 0.2s;
-  padding: 0.4rem 0.8rem;
+  padding: 0.4rem 0.9rem;
   border-radius: 8px;
-}
-.main-nav a:hover {
-  background: rgba(255,255,255,0.2);
-}
-.main-nav a.active {
-  background: rgba(255,255,255,0.3);
+  transition: background 0.3s, transform 0.2s;
 }
 
-/* Main Layout */
+.main-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.main-nav a.active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Search + Login */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search {
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  width: 180px;
+  background: #fff;
+  color: var(--text);
+}
+
+.search::placeholder {
+  color: var(--muted);
+}
+
+.search:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+}
+
+.btn-ghost {
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+  border: none;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  transition: transform 0.2s;
+}
+.btn-ghost:hover {
+  transform: scale(1.05);
+}
+
+/* Hamburger Icon */
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+.menu-icon:hover {
+  transform: scale(1.1);
+}
+
+/* ==============================
+   RESPONSIVE NAVBAR
+   ============================== */
+@media screen and (max-width: 768px) {
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background: linear-gradient(180deg, var(--accent-green), var(--accent-blue));
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.4s ease forwards;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  .main-nav a {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   🌈 MAIN CONTENT
+   =============================== */
 .main-viewport {
   padding-top: 100px;
   padding-bottom: 2rem;
@@ -75,7 +200,6 @@ html, body {
   margin: auto;
 }
 
-/* Section Titles */
 .section-title, .section h3 {
   font-size: 1.8rem;
   font-weight: 700;
@@ -83,7 +207,9 @@ html, body {
   margin-bottom: 1rem;
 }
 
-/* Player Card */
+/* ===============================
+   🎧 PLAYER SECTION
+   =============================== */
 .player-and-playlist {
   display: flex;
   gap: 2rem;
@@ -145,7 +271,7 @@ html, body {
   accent-color: var(--accent-blue);
 }
 
-/* Playlist Card */
+/* Playlist */
 .playlist-card {
   flex: 1 1 35%;
   background: var(--card);
@@ -166,7 +292,6 @@ html, body {
   gap: 0.8rem;
 }
 
-/* Song Item */
 .playlist-list li {
   display: flex;
   align-items: center;
@@ -197,13 +322,16 @@ html, body {
   accent-color: var(--accent-blue);
 }
 
-/* Horizontal scroll albums */
+/* ===============================
+   💿 Albums (Horizontal Scroll)
+   =============================== */
 .horizontal-scroll {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
   padding-bottom: 1rem;
 }
+
 .album-card {
   flex: 0 0 auto;
   background: var(--card);
@@ -215,6 +343,7 @@ html, body {
   transition: transform 0.3s;
 }
 .album-card:hover { transform: translateY(-5px); }
+
 .album-card img {
   width: 100%;
   height: 100px;
@@ -222,16 +351,20 @@ html, body {
   object-fit: cover;
   margin-bottom: 0.5rem;
 }
+
 .album-title { font-weight: 600; }
 .album-artist { font-size: 0.85rem; color: var(--muted); }
 
-/* Artists grid */
+/* ===============================
+   👩‍🎤 Artists Grid
+   =============================== */
 .artists-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
 }
+
 .artist {
   background: var(--card);
   border-radius: var(--radius);
@@ -241,6 +374,7 @@ html, body {
   padding: 0.8rem;
   position: relative;
 }
+
 .artist-photo {
   width: 100%;
   height: 160px;
@@ -250,6 +384,7 @@ html, body {
   margin-bottom: 0.5rem;
   position: relative;
 }
+
 .play-circle {
   position: absolute;
   bottom: 8px;
@@ -275,26 +410,9 @@ html, body {
   font-size: 1rem;
 }
 
-/* Footer */
-.site-footer {
-  text-align: center;
-  color: var(--muted);
-  padding: 1.5rem 0;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  background: #fff;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .player-and-playlist {
-    flex-direction: column;
-  }
-  .playlist-card, .player-card { flex: 1 1 100%; }
-  .horizontal-scroll { overflow-x: scroll; }
-  .main-nav { display: none; }
-}
-/* =================== CONTACT PAGE =================== */
-
+/* ===============================
+   📞 Contact Page
+   =============================== */
 .contact-container {
   max-width: 800px;
   margin: 2rem auto;
@@ -308,10 +426,9 @@ html, body {
   padding: 2rem;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .contact-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.25);
+  box-shadow: 0 8px 25px rgba(52,152,219,0.25);
 }
 
 .contact-card h2 {
@@ -326,7 +443,6 @@ html, body {
   line-height: 1.5;
 }
 
-/* Contact form */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -360,20 +476,14 @@ html, body {
   font-weight: 600;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .contact-form button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(52,152,219,0.3);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .contact-card {
-    padding: 1rem;
-  }
-}
-/* ===== Features Page Styles ===== */
-
+/* ===============================
+   🌟 Features Page
+   =============================== */
 .feature-section {
   background: var(--card);
   box-shadow: 0 4px 12px var(--shadow);
@@ -382,7 +492,6 @@ html, body {
   margin-bottom: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .feature-section:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 25px rgba(52, 152, 219, 0.25);
@@ -410,7 +519,6 @@ html, body {
   text-align: center;
 }
 
-/* Feature list (if you keep ul) */
 .features-list {
   list-style-type: disc;
   padding-left: 1.5rem;
@@ -423,8 +531,41 @@ html, body {
   margin-bottom: 0.6rem;
 }
 
-/* Responsive adjustments */
+/* ===============================
+   🦶 Footer
+   =============================== */
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+/* ===============================
+   📱 General Responsive Fixes
+   =============================== */
 @media (max-width: 768px) {
+  .player-and-playlist {
+    flex-direction: column;
+  }
+  .playlist-card, .player-card {
+    flex: 1 1 100%;
+  }
+
+  .search {
+    width: 120px;
+  }
+
+  .main-viewport,
+  .page {
+    padding-top: 140px;
+  }
+
+  .contact-card {
+    padding: 1rem;
+  }
+
   .feature-section {
     padding: 1rem 1.2rem;
   }
@@ -440,50 +581,4 @@ html, body {
   .features-list li {
     font-size: 0.95rem;
   }
-}
-/* ===== Search Input Styling ===== */
-.search {
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.2);
-  outline: none;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  width: 180px;
-  background: #fff;
-  color: var(--text);
-}
-
-.search::placeholder {
-  color: var(--muted);
-}
-
-.search:focus {
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 10px rgba(52,152,219,0.3);
-}
-.main-viewport,
-.page {
-  padding-top: 120px;
-}
-@media (max-width: 768px) {
-  .search {
-    width: 120px;
-  }
-
-  .main-viewport,
-  .page {
-    padding-top: 140px;
-  }
-}
-.btn-ghost {
-  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
-  border: none;
-  color: #fff;
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-right: 0.5rem;
-  font-size: 1rem;
-  transition: transform 0.2s;
 }
