@@ -1,0 +1,224 @@
+:root {
+  --bg: #f9fafb;
+  --card: #ffffff;
+  --accent-blue: #3498db;
+  --accent-green: #2ecc71;
+  --text: #0a0a0a;
+  --muted: #888;
+  --shadow: rgba(0, 0, 0, 0.15);
+  --radius: 14px;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+}
+
+/* Navbar */
+.nav.fixed {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: linear-gradient(90deg, rgba(46, 204, 113, 0.95), rgba(52, 152, 219, 0.95));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.5rem;
+}
+
+.logo {
+  height: 45px;
+  border-radius: 25px;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.main-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.main-nav a {
+  color: var(--card);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s, background 0.2s;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+}
+
+.main-nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.main-nav a.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.search {
+  padding: 0.4rem 0.7rem;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+}
+
+.search::placeholder {
+  color: #eee;
+}
+
+.btn-ghost {
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.3s;
+}
+
+.btn-ghost:hover {
+  transform: scale(1.05);
+}
+
+/* Main Page Layout */
+.main-viewport {
+  padding-top: 100px;
+  padding-bottom: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+  color: var(--accent-green);
+}
+
+.muted {
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+/* Artist Grid */
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.8rem;
+  margin-top: 1rem;
+}
+
+/* Artist Card */
+.artist-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px var(--shadow);
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hover Effect — Glow and Lift */
+.artist-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+}
+
+.artist-photo-large {
+  width: 100%;
+  height: 220px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  margin-bottom: 0.8rem;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Zoom effect on image hover */
+.artist-card:hover .artist-photo-large {
+  transform: scale(1.08);
+  filter: brightness(1.1) saturate(1.2);
+}
+
+.artist-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.artist-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+
+.btn-accent {
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Button Hover Glow */
+.btn-accent:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 20px rgba(52, 152, 219, 0.5);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: var(--muted);
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+  background: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+  }
+  .artists-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+  .artist-photo-large {
+    height: 180px;
+  }
+}

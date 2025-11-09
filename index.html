@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VibeTune — Stream, Vibe, and Feel the Music</title>
+
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body >
+  <!-- Top nav -->
+  <header class="nav fixed">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html">
+      <img src="vibetune-logo.jpg" alt="vibetune logo" class="logo">
+      </a>
+   <nav class="main-nav">
+  <a href="index.html" class="active">Home</a>
+  <a href="artists.html">Artists</a>
+  <a href="playlist.html">Albums</a>
+  <a href="events.html">Events</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+      <div class="nav-actions">
+    
+       <input class="search" type="search" placeholder="Search artists, tracks..." aria-label="Search">
+<button id="search-btn">🔍</button>
+        <button class="btn-ghost">Login</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="container main-viewport">
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Stream, Vibe, and Feel the Music</h1>
+        <p class="lead">Discover your next favorite artist.</p>
+        <div class="hero-cta">
+          <button id="hero-play" class="btn-accent">🎵 Play Now</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="player-and-playlist">
+      <article class="player-card">
+        <div id="now-playing">
+          <img id="art" src="Og-Abbah.jpeg" alt="art" class="artwork">
+          <div class="meta">
+            <h2 id="track-title">Wayo-Allah</h2>
+            <p id="track-artist" class="muted"></p>
+            <div class="controls">
+              <button id="prev" class="control">⏮</button>
+              <button id="play" class="control">▶️</button>
+              <button id="next" class="control">⏭</button>
+            </div>
+
+            <div class="seek-wrap">
+              <input id="seek" type="range" min="0" max="100" value="0">
+              <div class="time">
+                <span id="current">0:00</span>
+                <span id="duration">0:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <audio id="audio" preload="metadata"></audio>
+      </article>
+
+      <aside class="playlist-card">
+        <h3>Playlist</h3>
+        <ul id="playlist" class="playlist-list"></ul>
+      </aside>
+    </section>
+
+    <!-- New Releases (horizontal scroll) -->
+    <section class="section">
+      <h3 class="section-title">New Releases</h3>
+      <div class="horizontal-scroll" id="new-releases">
+        <!-- album cards - replace src and text with your assets -->
+        <div class="album-card">
+          <img src="duro.jpg" alt="release 1">
+          <div class="album-meta">
+            <div class="album-title">Duro</div>
+            <div class="album-artist muted">Horsmanty</div>
+          </div>
+        </div>
+      <div class="album-card">
+          <img src="Body_danz.jpeg" alt="release 2">
+          <div class="album-meta">
+            <div class="album-title">Body Dance</div>
+            <div class="album-artist muted">Mavo</div>
+          </div>
+        </div>
+        <div class="album-card">
+          <img src="hotbody.jpeg" alt="release 3">
+          <div class="album-meta">
+            <div class="album-title">Hot Body</div>
+            <div class="album-artist muted">Arya Starr</div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Popular Artists -->
+  
+<section class="section">
+  <h3 class="section-title">Popular Now</h3>
+
+      <div class="artists-grid">
+        <div class="artist">
+          <div class="artist-photo" style="background-image:url('Mavo.jpg')">
+           <a href="playlist.html#mavo" class="play-circle">▶</a>
+          </div>
+          <div class="artist-name">Mavo</div>
+        </div>
+
+        <div class="artist">
+          <div class="artist-photo" style="background-image:url('Tyla.jpeg')">
+            <a href="playlist.html#tyla" class="play-circle">▶</a>
+          </div>
+          <div class="artist-name">Tyla</div>
+        </div>
+
+        <div class="artist">
+          <div class="artist-photo" style="background-image:url('drake.jpeg')">
+            <a href="playlist.html#drake" class="play-circle">▶</a>
+          </div>
+          <div class="artist-name">Drake</div>
+        </div>
+
+        <div class="artist">
+          <div class="artist-photo" style="background-image:url('rema.jpeg')">
+        <a href="playlist.html#rema" class="play-circle">▶</a>
+          </div>
+          <div class="artist-name">Rema</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2025 VibeTune. All rights reserved.</div>
+        <div class="footer-icons">
+          <!-- placeholder icons -->
+          <a href="#" aria-label="twitter">T</a>
+          <a href="#" aria-label="instagram">I</a>
+          <a href="#" aria-label="facebook">F</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="player.js"></script>
+  <script>
+    // hero play button triggers playback of first track
+    document.getElementById('hero-play').addEventListener('click', ()=> {
+      const playBtn = document.getElementById('play');
+      if (!document.getElementById('audio').src) {
+        // load handled in player.js init - call play
+        playBtn.click();
+      } else {
+        playBtn.click();
+      }
+    });
+
+    // artist quick-play buttons
+    document.querySelectorAll('.play-circle').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        const idx = Number(btn.dataset.trackIndex || 0);
+        // rely on player.js global functions:
+        if (window.playerLoadAndPlay) window.playerLoadAndPlay(idx);
+      });
+    });
+    const searchInput = document.querySelector('.search');
+const searchBtn = document.getElementById('search-btn');
+
+searchBtn.addEventListener('click', () => {
+  const query = searchInput.value.trim().toLowerCase();
+  if (!query) return;
+
+  // Redirect to playlist page with query
+  window.location.href = `playlist.html?search=${encodeURIComponent(query)}`;
+});
+
+  </script>
+
+</body>
+</html>

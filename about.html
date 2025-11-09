@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — VibeTune</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body class="bg-dark">
+  <header class="nav fixed">
+    <div class="container nav-inner">
+      <img src="vibetune-logo.jpg" alt="vibetune-logo" class="logo">
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="features.html">Features</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <input class="search" type="search" placeholder="Search...">
+        <button class="btn-ghost">Login</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page">
+    <!-- Hero -->
+    <section class="about-hero">
+      <div class="about-hero-left">
+        <h1>About VibeTune</h1>
+        <p class="lead">We don’t just play music — we create experiences that move you.</p>
+      </div>
+      <div class="about-hero-right">
+        <div class="illustration" style="background-image:url('about-illustration.jpg')"></div>
+      </div>
+    </section>
+
+    <!-- Vision + Story -->
+    <section class="split">
+      <div class="split-text">
+        <h2>Our Story</h2>
+        <p>
+          Born from a shared love for rhythm, creativity, and connection, <strong>VibeTune</strong> began as a small project with a big dream — 
+          to make music discovery more personal, immersive, and beautiful. What started in a college workspace with five passionate minds and endless playlists 
+          has evolved into a growing digital platform for music lovers and artists alike.
+        </p>
+
+        <p>
+          At VibeTune, we believe music isn’t just sound — it’s emotion, identity, and storytelling. Our goal is simple: 
+          bring music closer to your soul. Whether you’re vibing to Afrobeats, lost in Pop, or chilling with Lo-fi, 
+          we make sure every note feels just right.
+        </p>
+
+        <h2>Our Vision</h2>
+        <p>
+          To connect people globally through sound that inspires, heals, and unites. 
+          We want to be more than just another streaming app — we’re building a <em>community</em> where listeners and artists share stories, 
+          discover new worlds, and find rhythm in every click.
+        </p>
+      </div>
+
+      <div class="split-media">
+        <img src="team.jpg" alt="VibeTune team at work" class="card-img">
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section">
+      <h3 class="section-title">Meet the Dream Team Behind VibeTune 🎧</h3>
+      <p class="muted">
+        Every idea, line of code, and color on this site comes from a team that believes in the magic of collaboration. 
+        We’re not just teammates — we’re a creative family passionate about blending art and technology.
+      </p>
+
+      <ul class="team-list">
+        <li>
+          <strong>OLUEJU ENIOLA MARY</strong> — <em>Creative Director & UI/UX Designer</em>  
+          <p>Eniola brings imagination to life. From crafting the smoothest interfaces to ensuring each button feels natural, 
+          she makes sure VibeTune looks as good as it sounds.</p>
+          <img class="pictures" src="henny.jpg" alt="Eniola">
+        </li>
+
+        <li>
+          <strong>OYEWOLE JOHN OYEWUNMI</strong> — <em>Lead Developer & Mobile Experience Engineer</em>  
+          <p>John turns ideas into code and chaos into structure. He’s responsible for the heart of VibeTune’s HTML framework and 
+          ensures everything flows perfectly on both desktop and mobile screens.</p>
+          <img src="ayanfe.jpg" alt="John" class="pictures">
+        </li>
+
+        <li>
+          <strong>OLASUNBO UTHMAN ABOLADE</strong> — <em>Core Interactivity & Logic Lead</em>  
+          <p>When the music plays and buttons respond seamlessly — that’s Uthman’s magic. He handles the JavaScript logic that powers 
+          VibeTune’s dynamic feel, bringing life to the interface.</p>
+          <img src="uthman.jpg" alt="Uthman" class="pictures">
+        </li>
+
+        <li>
+          <strong>AWONUGA SEBILILLAH OLUWAFERANMI</strong> — <em>Content Strategist & Experience Curator</em>  
+          <p>Sebilillah crafts the tone, the feel, and the story behind every page. He ensures that every feature doesn’t just work — it connects emotionally with users.</p>
+          <img src="Sebil.jpg" alt="Sebilillah" class="pictures">
+        </li>
+
+        <li>
+          <strong>ASIFAT AZEEM ADEDEJI</strong> — <em>Project Analyst & Documentation Specialist</em>  
+          <p>Azeem keeps the entire ship steady. From research to project documentation, he bridges creativity and structure, 
+          ensuring that every feature and idea aligns with the team’s goals.</p>
+          <img src="adedeji.jpg" alt="Azeem" class="pictures">
+        </li>
+      </ul>
+    </section>
+
+    <!-- Closing Note -->
+    <section class="section">
+      <h3 class="section-title">The Vibe Continues 🎵</h3>
+      <p>
+        Our journey doesn’t end here. VibeTune continues to evolve, adapt, and grow — just like the music we love.
+        We’re working on smarter recommendations, artist collaborations, and experiences that keep you vibing anytime, anywhere.
+        Stay tuned — the rhythm has only just begun.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© 2025 VibeTune. All rights reserved.</div>
+  </footer>
+  <script>
+  // Fade-in animation on scroll
+  const fadeElements = document.querySelectorAll('.fade-in');
+
+  function handleScrollAnimation() {
+    const triggerBottom = window.innerHeight * 0.9;
+
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect().top;
+      if (rect < triggerBottom) {
+        el.classList.add('show');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', handleScrollAnimation);
+  window.addEventListener('load', handleScrollAnimation);
+</script>
+</body>
+</html>

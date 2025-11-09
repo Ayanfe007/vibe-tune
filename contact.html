@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — VibeTune</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-dark">
+  <header class="nav fixed">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html">
+        <img src="vibetune-logo.jpg" alt="vibetune-logo" class="logo">
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="features.html">Features</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <input class="search" type="search" placeholder="Search...">
+        <button class="btn-ghost">Login</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page">
+     <h2>We’d Love to Hear From You!</h2>
+    <p>At VibeTune, music is more than sound—it’s a connection. Whether you have questions, feedback, or just want to share your favorite track, we’re here to listen. Every message inspires us to create a better musical experience for you.</p>
+    
+    <p>Reach out and let your voice be heard. We promise to respond with the same passion we put into every beat and playlist.</p>
+    
+    <form id="contact-form" class="contact-form" novalidate>
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" required>
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+
+      <button type="submit" class="btn-accent">Send Message</button>
+      <p id="form-msg" class="form-msg"></p>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© 2025 VibeTune. All rights reserved.</div>
+  </footer>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+      const msg = document.getElementById('form-msg');
+
+      const re = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      if(!name.value.trim() || !email.value.trim() || !message.value.trim()){
+        msg.textContent = 'Please fill in all fields.';
+        msg.classList.add('error');
+        return;
+      }
+      if(!re.test(email.value)){
+        msg.textContent = 'Enter a valid email.';
+        msg.classList.add('error');
+        return;
+      }
+
+      msg.textContent = 'Thanks! Your message was sent (demo).';
+      msg.classList.remove('error');
+      msg.classList.add('success');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
