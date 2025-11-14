@@ -358,5 +358,39 @@
       });
     });
   </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Read hash value (#davido, #asake, #burna...)
+  const hash = window.location.hash;
+
+  if (!hash) return;
+
+  const artist = hash.replace("#", "").toLowerCase();
+
+  // Find song that matches artist
+  const targetSong = document.querySelector(`.song-item[data-artist="${artist}"]`);
+
+  if (targetSong) {
+    
+    // Open the playlist section
+    const section = targetSong.closest(".playlist-category");
+    const button = section.querySelector(".toggle-btn");
+    if (button) button.click();
+
+    // Scroll to the song
+    targetSong.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    // Auto play the song
+    const audio = targetSong.querySelector("audio");
+    if (audio) {
+      setTimeout(() => audio.play(), 700);
+      targetSong.classList.add("playing");
+    }
+  }
+});
+</script>
+
+
 </body>
 </html>

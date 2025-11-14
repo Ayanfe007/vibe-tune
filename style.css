@@ -582,3 +582,11 @@ html, body {
     font-size: 0.95rem;
   }
 }
+/* ====== FIX NAVBAR OVERLAP ====== */
+.page,
+.main-viewport,
+.contact-container,
+.about-hero,
+.section {
+  padding-top: 120px !important;
+}

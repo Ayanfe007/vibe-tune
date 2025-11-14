@@ -6,23 +6,40 @@
   <title>About — VibeTune</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style2.css" />
+  <link rel="stylesheet" href="hambuger.css" type="text/css" />
 </head>
 <body class="bg-dark">
-  <header class="nav fixed">
-    <div class="container nav-inner">
-      <img src="vibetune-logo.jpg" alt="vibetune-logo" class="logo">
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="features.html">Features</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+
+ <header class="nav fixed">
+  <div class="container nav-inner">
+
+    <!-- Logo -->
+    <a class="logo" href="index.html">
+      <img src="vibetune-logo.jpg" alt="vibetune logo" class="logo">
+    </a>
+
+    <!-- Hamburger Icon -->
+    <div class="menu-icon" id="menu-icon">☰</div>
+
+    <!-- Navigation Links -->
+    <nav class="main-nav" id="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="artists.html">Artist</a>
+      <a href="playlist.html">Playlist</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="features.html">Features</a>
+
+      <!-- Search + Login -->
       <div class="nav-actions">
-        <input class="search" type="search" placeholder="Search...">
+        <input type="text" class="search" placeholder="Search..." />
         <button class="btn-ghost">Login</button>
       </div>
-    </div>
-  </header>
+    </nav>
+
+  </div>
+</header>
+
 
   <main class="container page">
     <!-- Hero -->
@@ -142,5 +159,15 @@
   window.addEventListener('scroll', handleScrollAnimation);
   window.addEventListener('load', handleScrollAnimation);
 </script>
+<script>
+const menuIcon = document.getElementById("menu-icon");
+const navLinks = document.getElementById("nav-links");
+
+menuIcon.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+</script>
+
+
 </body>
 </html>

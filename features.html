@@ -10,17 +10,31 @@
 <body class="bg-dark">
   <header class="nav fixed">
     <div class="container nav-inner">
-      <a class="logo" href="index.html">VibeTune</a>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="features.html" class="active">Features</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="nav-actions">
-        <input class="search" type="search" placeholder="Search...">
-        <button class="btn-ghost">Login</button>
-      </div>
+      <a class="logo" href="index.html">
+      <img src="vibetune-logo.jpg" alt="vibetune logo" class="logo">
+      </a>
+
+    <!-- Hamburger Icon -->
+    <div class="menu-icon" id="menu-icon">☰</div>
+
+    <!-- Navigation Links -->
+    <div class="main-nav" id="nav-links">
+      <a href="index.html" class="active">Home</a>
+        <a href="artists.html">Artist</a>
+      <a href="playlist.html">Playlist</a>
+      <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="features.html">Features</a>
+    
+
+    <!-- Search + Login stay visible -->
+    <div class="nav-actions">
+      <input type="text" class="search" placeholder="Search..." />
+      <button class="btn-ghost">Login</button>
+    </div>
+    </div>
+  </div>
+</nav>
     </div>
   </header>
 
@@ -70,5 +84,6 @@
   <footer class="site-footer">
     <div class="container">© 2025 VibeTune. All rights reserved.</div>
   </footer>
+  <script src="hambuger.js"></script>
 </body>
 </html>
