@@ -1,0 +1,325 @@
+/* contact.css - polished, tidy input styles + centered modal
+   Uses site variables from :root in main CSS (e.g. --card, --accent-blue, --accent-green)
+*/
+
+:root {
+  /* fallback values if main file didn't load */
+  --card: #ffffff;
+  --accent-blue: #3498db;
+  --accent-green: #2ecc71;
+  --text: #0a0a0a;
+  --muted: #777;
+  --radius: 14px;
+  --glass: rgba(255,255,255,0.06);
+}
+
+/* Container layout */
+.contact-wrapper {
+  margin-top: 120px;
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 36px 18px;
+  flex-wrap: wrap;
+}
+
+/* Form card (centered small box) */
+.contact-box {
+  width: 420px;
+  max-width: calc(100% - 40px);
+  background: var(--card);
+  padding: 28px;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 30px rgba(7,13,26,0.12);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-box h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--text);
+  letter-spacing: -0.2px;
+}
+
+.contact-box .sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+/* Input groups: label + input/textarea in compact card */
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.input-field label {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* Inputs - tidy, consistent heights, subtle inner shadow */
+.input-field input,
+.input-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  color: var(--text);
+  font-size: 0.98rem;
+  resize: vertical;
+  min-height: 44px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+  transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.08s ease;
+  outline: none;
+}
+
+/* textarea slightly taller */
+.input-field textarea {
+  min-height: 120px;
+  padding-top: 12px;
+  line-height: 1.45;
+}
+
+/* Focus and hover states */
+.input-field input:focus,
+.input-field textarea:focus {
+  border-color: rgba(52,152,219,0.9);
+  box-shadow: 0 8px 20px rgba(52,152,219,0.08);
+  transform: translateY(-1px);
+}
+
+/* subtle placeholder color */
+.input-field input::placeholder,
+.input-field textarea::placeholder {
+  color: #bfc9d9;
+}
+
+/* Primary button */
+.btn-send {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(52,152,219,0.12);
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+.btn-send:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(52,152,219,0.16);
+}
+
+/* Contact info card (right column) */
+.contact-info {
+  width: 300px;
+  max-width: calc(100% - 40px);
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(7,13,26,0.08);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  color: var(--text);
+}
+
+.contact-info h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--accent-blue);
+  font-size: 1.05rem;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* small heading inside contact-info */
+.contact-info h4 {
+  margin: 14px 0 6px;
+  color: var(--text);
+  font-size: 0.98rem;
+}
+
+/* POPUP MODAL (centered) */
+.popup {
+  position: fixed;
+  inset: 0; /* top:0;left:0;right:0;bottom:0; */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 12, 24, 0.52);
+  z-index: 4000;
+  padding: 20px;
+}
+
+/* active shows it */
+.popup.active {
+  display: flex;
+}
+
+/* box */
+.popup-box {
+  width: 360px;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px 18px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(7, 12, 24, 0.28);
+  transform: translateY(0);
+  animation: popup-appear 220ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* title text */
+.popup-box p {
+  margin: 0;
+  font-size: 1rem;
+  color: #1f2937;
+  line-height: 1.4;
+}
+
+/* status icon container */
+.popup-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* success / error coloring */
+.popup-box.success .popup-icon {
+  background: linear-gradient(90deg, rgba(46,204,113,0.15), rgba(46,204,113,0.18));
+  color: var(--accent-green);
+}
+
+.popup-box.error .popup-icon {
+  background: linear-gradient(90deg, rgba(220,53,69,0.12), rgba(220,53,69,0.16));
+  color: #dc3545;
+}
+
+/* close button */
+.popup-controls {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.popup-controls button {
+  min-width: 92px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  background: var(--accent-blue);
+  box-shadow: 0 8px 24px rgba(52,152,219,0.12);
+}
+
+.popup-box.error .popup-controls button {
+  background: #dc3545;
+}
+
+/* subtle animation */
+@keyframes popup-appear {
+  from { transform: translateY(-12px) scale(0.98); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 880px) {
+  .contact-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 12px;
+  }
+  .contact-info {
+    width: 100%;
+  }
+  .contact-box {
+    width: 100%;
+  }
+}
+/* === FLOATING LABEL INPUTS === */
+.float-field {
+  position: relative;
+  margin-bottom: 22px;
+  width: 100%;
+}
+
+.float-field input,
+.float-field textarea {
+  width: 100%;
+  padding: 14px 12px;
+  font-size: 15px;
+  border: 1.7px solid #cfcfcf;
+  border-radius: 8px;
+  outline: none;
+  background: transparent;
+  color: #222;
+  transition: border 0.25s ease;
+}
+
+.float-field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Focus border */
+.float-field input:focus,
+.float-field textarea:focus {
+  border-color: #4a77ff;
+}
+
+/* LABEL */
+.float-field label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  background: white;
+  padding: 0 6px;
+  font-size: 15px;
+  color: #777;
+  pointer-events: none;
+  transition: 0.25s ease;
+}
+
+/* === FLOATING EFFECT === */
+.float-field input:focus + label,
+.float-field input:not(:placeholder-shown) + label,
+.float-field textarea:focus + label,
+.float-field textarea:not(:placeholder-shown) + label {
+  top: -9px;
+  font-size: 12px;
+  color: #4a77ff;
+}
+
+/* Smooth animation */
+.float-field input,
+.float-field textarea {
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.float-field label {
+  transition: all 0.3s ease;
+}

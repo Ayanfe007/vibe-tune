@@ -1,94 +1,166 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — VibeTune</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="hambuger.css" type="text/css" />
-</head>
-<body class="bg-dark">
- <header class="nav fixed">
-    <div class="container nav-inner">
-      <a class="logo" href="index.html">
-      <img src="vibetune-logo.jpg" alt="vibetune logo" class="logo">
-      </a>
 
-    <!-- Hamburger Icon -->
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="hambuger.css">
+</head>
+
+<body class="bg-dark">
+
+<!-- ================= NAVBAR ================= -->
+<header class="nav fixed">
+  <div class="container nav-inner">
+    <a class="logo" href="index.html">
+      <img src="vibetune-logo (2).jpg" class="logo-img" alt="VibeTune Logo">
+    </a>
+
     <div class="menu-icon" id="menu-icon">☰</div>
 
-    <!-- Navigation Links -->
     <div class="main-nav" id="nav-links">
-      <a href="index.html" class="active">Home</a>
-        <a href="artists.html">Artist</a>
+      <a href="index.html">Home</a>
+      <a href="artists.html">Artist</a>
       <a href="playlist.html">Playlist</a>
       <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    
+      <a href="contact.html" class="active">Contact</a>
+    </div>
 
-    <!-- Search + Login stay visible -->
     <div class="nav-actions">
-      <input type="text" class="search" placeholder="Search..." />
+      <input type="text" class="search" placeholder="Search...">
       <button class="btn-ghost">Login</button>
     </div>
-    </div>
   </div>
-</nav>
-    </div>
-  </header>
+</header>
 
-  <main class="container page">
-     <h2>We’d Love to Hear From You!</h2>
-    <p>At VibeTune, music is more than sound—it’s a connection. Whether you have questions, feedback, or just want to share your favorite track, we’re here to listen. Every message inspires us to create a better musical experience for you.</p>
-    
-    <p>Reach out and let your voice be heard. We promise to respond with the same passion we put into every beat and playlist.</p>
-    
-    <form id="contact-form" class="contact-form" novalidate>
-      <label for="name">Name</label>
-      <input id="name" name="name" type="text" required>
+<!-- =============== CONTACT PAGE WRAPPER =============== -->
+<section class="contact-wrapper">
 
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required>
+  <!-- =============== CONTACT FORM BOX =============== -->
+  <div class="contact-box">
+    <h2>We’d Love to Hear From You!</h2>
+    <p class="sub">
+      Music is connection. Whether you have questions, feedback,
+      or just want to share your favorite vibe, we’re here for you.
+    </p>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="6" required></textarea>
+    <form id="contact-form">
+      <div class="input-field">
+        <div class="float-field">
+  <input type="text" id="name" required>
+  <label for="name">Name</label>
+</div>
 
-      <button type="submit" class="btn-accent">Send Message</button>
-      <p id="form-msg" class="form-msg"></p>
+<div class="float-field">
+  <input type="email" id="email" required>
+  <label for="email">Email</label>
+</div>
+
+<div class="float-field">
+  <textarea id="message" rows="4" required></textarea>
+  <label for="message">Message</label>
+</div>
+
+
+      <button type="submit" class="btn-send">Send Message</button>
     </form>
-  </main>
+  </div>
 
-  <footer class="site-footer">
-    <div class="container">© 2025 VibeTune. All rights reserved.</div>
-  </footer>
+  <!-- =============== CONTACT INFO BOX =============== -->
+  <div class="contact-info">
 
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = document.getElementById('name');
-      const email = document.getElementById('email');
-      const message = document.getElementById('message');
-      const msg = document.getElementById('form-msg');
+    <h3>Contact Information</h3>
 
-      const re = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-      if(!name.value.trim() || !email.value.trim() || !message.value.trim()){
-        msg.textContent = 'Please fill in all fields.';
-        msg.classList.add('error');
-        return;
-      }
-      if(!re.test(email.value)){
-        msg.textContent = 'Enter a valid email.';
-        msg.classList.add('error');
-        return;
-      }
+    <p><strong>📞 Phone:</strong> +234 816 456 9982</p>
+    <p><strong>📧 Gmail:</strong> vibetuneofficial@gmail.com</p>
 
-      msg.textContent = 'Thanks! Your message was sent (demo).';
-      msg.classList.remove('error');
-      msg.classList.add('success');
-      this.reset();
-    });
-  </script>
-  <script src="hambuger.js"></script>
+    <h4>📍 Headquarters</h4>
+    <p>No. 24 Rhythm Avenue, Ikeja, Lagos, Nigeria</p>
+
+    <h4>🏢 Branch 1 (Lagos)</h4>
+    <p>VibeTune Studio, Lekki Phase 1, Lagos</p>
+
+  </div>
+
+</section>
+
+<!-- ================= POPUP HANDLER JS ================= -->
+<script>
+  /* (This is the polished JS I provided earlier)
+     — validates form
+     — shows popup modal
+     — success/error messaging
+  */
+
+  const form = document.getElementById('contact-form');
+
+  let popup = document.getElementById('popup');
+  let popupBox, popupText, popupIcon, popupBtn;
+
+  if (!popup) {
+    popup = document.createElement('div');
+    popup.id = 'popup';
+    popup.className = 'popup';
+    popup.innerHTML = `
+      <div class="popup-box">
+        <div class="popup-icon">✓</div>
+        <p id="popup-text">Message</p>
+        <div class="popup-controls">
+          <button id="popup-ok">OK</button>
+        </div>
+      </div>`;
+    document.body.appendChild(popup);
+  }
+
+  popupBox = popup.querySelector('.popup-box');
+  popupText = popup.querySelector('#popup-text');
+  popupIcon = popup.querySelector('.popup-icon');
+  popupBtn = popup.querySelector('#popup-ok');
+
+  function showPopup(message, type = 'success') {
+    popupText.textContent = message;
+    popupBox.classList.remove('success', 'error');
+    popup.classList.add('active');
+
+    if (type === 'success') {
+      popupBox.classList.add('success');
+      popupIcon.textContent = '✓';
+    } else {
+      popupBox.classList.add('error');
+      popupIcon.textContent = '!';
+    }
+
+    setTimeout(() => popupBtn.focus(), 120);
+
+    popupBtn.onclick = () => popup.classList.remove('active');
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let name = document.getElementById('name').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let msg = document.getElementById('message').value.trim();
+
+    if (!name || !email || !msg)
+      return showPopup("❌ Please fill out all fields.", "error");
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      return showPopup("⚠️ Invalid email address.", "error");
+
+    showPopup("✅ Your message has been sent successfully!", "success");
+
+    setTimeout(() => form.reset(), 300);
+  });
+</script>
+
+<script src="hambuger.js"></script>
 </body>
 </html>
